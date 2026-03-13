@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../main_layout.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -22,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return MainLayout(
-      Title: 'Login',
+      title: 'Login',
       showAppBar: false,
       child: Container(
         color: MainLayout.backgroundColor,
@@ -85,8 +86,6 @@ class _LoginPageState extends State<LoginPage> {
                       decoration: InputDecoration(
                         labelText: 'Email Address',
                         labelStyle: TextStyle(color: MainLayout.labelColor),
-                        prefixIcon: const Icon(Icons.email_outlined, 
-                        color: MainLayout.primaryColor),
                         prefixIcon: const Icon(Icons.email_outlined,
                             color: MainLayout.primaryColor),
                         enabledBorder: OutlineInputBorder(
@@ -188,19 +187,23 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 24),
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('Don\'t have an account? ',
-                        style: TextStyle(
-                          color: MainLayout.textSubTitleColor,
-                          fontSize: 15),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Don\'t have an account? ',
+                          style: TextStyle(
+                            color: MainLayout.textSubTitleColor,
+                            fontSize: 15,
+                          ),
                         ),
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const RegisterPage()),
+                              MaterialPageRoute(
+                                builder: (context) => const RegisterPage(),
+                              ),
                             );
                           },
                           child: const Text(
@@ -211,14 +214,16 @@ class _LoginPageState extends State<LoginPage> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                      ),
-                    ],
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         ),
       ),
     );
- }
+  }
 }
