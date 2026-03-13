@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:navigation_0043/main_layout.dart';
+import 'package:navigation_0043/page/order_page.dart';
 
 class HomePage extends StatefulWidget {
   final Map<String, dynamic>? recentOrder;
@@ -176,10 +177,10 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 16),
               InkWell(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => const OrderPage()),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const OrderPage()),
+                  );
                 },
                 borderRadius: BorderRadius.circular(16),
                 child: Container(
