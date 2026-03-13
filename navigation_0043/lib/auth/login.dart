@@ -135,7 +135,33 @@ class _LoginPageState extends State<LoginPage> {
                         return null;
                       },
                     ),
-                    
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: () {
+                        },
+                        style: TextButton.styleFrom(
+                          foregroundColor: MainLayout.accentOrange,
+                        ),
+                        child: const Text(
+                          'Forgot Password?',
+                          style: TextStyle(fontWeight: FontWeight.w600),
+                          ),
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 24),
+                  ElevatedButton(
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => const HomePage()),
+                        );
+                      }
+                    },
+
                   ],
 
                 ),,
