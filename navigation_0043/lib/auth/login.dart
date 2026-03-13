@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
                       'assets/images/login.png',
                       height: 200,
                       fit: BoxFit.contain,
-                      errorBuilder: (context, error, stackTrace){
+                      errorBuilder: (context, error, stackTrace) {
                         return Container(
                           height: 200,
                           decoration: BoxDecoration(
@@ -59,7 +59,6 @@ class _LoginPageState extends State<LoginPage> {
                       },
                     ),
                     const SizedBox(height: 40),
-
                     const Text(
                       'Welcome Back!',
                       textAlign: TextAlign.left,
@@ -71,26 +70,26 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     const SizedBox(height: 8),
-                    Text('Sign in to your account',
+                    const Text(
+                      'Sign in to your account',
                       textAlign: TextAlign.left,
                       style: TextStyle(
                         fontSize: 16,
                         color: MainLayout.textSubTitleColor,
                       ),
                     ),
-
                     const SizedBox(height: 48),
                     TextFormField(
                       controller: _emailController,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         labelText: 'Email Address',
-                        labelStyle: TextStyle(color: MainLayout.labelColor),
+                        labelStyle: const TextStyle(color: MainLayout.labelColor),
                         prefixIcon: const Icon(Icons.email_outlined,
                             color: MainLayout.primaryColor),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(color: MainLayout.borderColor),
+                          borderSide: const BorderSide(color: MainLayout.borderColor),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
@@ -102,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                         filled: true,
                         fillColor: MainLayout.inputFillColor,
                       ),
-                      validator: (value){
+                      validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your email';
                         }
@@ -110,18 +109,17 @@ class _LoginPageState extends State<LoginPage> {
                       },
                     ),
                     const SizedBox(height: 20),
-
                     TextFormField(
                       controller: _passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
                         labelText: 'Password',
-                        labelStyle: TextStyle(color: MainLayout.labelColor),
+                        labelStyle: const TextStyle(color: MainLayout.labelColor),
                         prefixIcon: const Icon(Icons.lock_outline,
                             color: MainLayout.primaryColor),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(color: MainLayout.borderColor),
+                          borderSide: const BorderSide(color: MainLayout.borderColor),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
@@ -133,7 +131,7 @@ class _LoginPageState extends State<LoginPage> {
                         filled: true,
                         fillColor: MainLayout.inputFillColor,
                       ),
-                      validator: (value){
+                      validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your password';
                         }
@@ -143,50 +141,46 @@ class _LoginPageState extends State<LoginPage> {
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
-                        onPressed: () {
-                        },
+                        onPressed: () {},
                         style: TextButton.styleFrom(
                           foregroundColor: MainLayout.accentOrange,
                         ),
                         child: const Text(
                           'Forgot Password?',
                           style: TextStyle(fontWeight: FontWeight.w600),
-                          ),
-                      ),
-                    ),
-
-
-                  const SizedBox(height: 24),
-
-                  ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => const HomePage()),
-                        );
-                      }
-                    },
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 18),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      backgroundColor: MainLayout.primaryColor,
-                      foregroundColor: Colors.white,
-                      elevation: 0,
-                    ),
-                    child: const Text(
-                      'Login',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1.0,
                         ),
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 24),
-
+                    const SizedBox(height: 24),
+                    ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HomePage()),
+                          );
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 18),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        backgroundColor: MainLayout.primaryColor,
+                        foregroundColor: Colors.white,
+                        elevation: 0,
+                      ),
+                      child: const Text(
+                        'Login',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1.0,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 24),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -202,8 +196,7 @@ class _LoginPageState extends State<LoginPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const RegisterPage(),
-                              ),
+                                  builder: (context) => const RegisterPage()),
                             );
                           },
                           child: const Text(
