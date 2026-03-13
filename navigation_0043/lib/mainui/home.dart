@@ -51,11 +51,12 @@ class _HomePageState extends State<HomePage> {
       child: Container(
         color: MainLayout.backgroundColor,
         width: double.infinity,
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -284,7 +285,7 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Food: \n${widget.recentOrder!['makanan']}',
+                            'Food: ${widget.recentOrder!['makanan']}',
                             style: const TextStyle(color: MainLayout.textSubTitleColor),
                           ),
                           Text(
@@ -298,7 +299,7 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Drink: \n${widget.recentOrder!['minuman']}',
+                            'Drink: ${widget.recentOrder!['minuman']}',
                             style: const TextStyle(color: MainLayout.textSubTitleColor),
                           ),
                           Text(
@@ -330,11 +331,11 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-              ],
             ],
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 }
