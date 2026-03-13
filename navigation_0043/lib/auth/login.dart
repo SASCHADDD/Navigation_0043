@@ -40,11 +40,11 @@ class _LoginPageState extends State<LoginPage> {
                       'assets/images/login.png',
                       height: 200,
                       fit: BoxFit.contain,
-                      errorBuilder: (context, error, StackTrace){
+                      errorBuilder: (context, error, stackTrace){
                         return Container(
                           height: 200,
                           decoration: BoxDecoration(
-                            color: Main.Layout.primaryColor.withOpacity(0.1),
+                            color: MainLayout.primaryColor.withOpacity(0.1),
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: const Center(
@@ -87,17 +87,21 @@ class _LoginPageState extends State<LoginPage> {
                         labelStyle: TextStyle(color: MainLayout.labelColor),
                         prefixIcon: const Icon(Icons.email_outlined, 
                         color: MainLayout.primaryColor),
+                        prefixIcon: const Icon(Icons.email_outlined,
+                            color: MainLayout.primaryColor),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide(color: MainLayout.borderColor),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
-                          borderSide: BorderSide(color: 
-                          MainLayout.primaryColor, width: 2),
-                      ),
-                      filled: true,
-                      fillColor: MainLayout.inputFillColor,
+                          borderSide: const BorderSide(
+                            color: MainLayout.primaryColor,
+                            width: 2,
+                          ),
+                        ),
+                        filled: true,
+                        fillColor: MainLayout.inputFillColor,
                       ),
                       validator: (value){
                         if (value == null || value.isEmpty) {
@@ -114,19 +118,21 @@ class _LoginPageState extends State<LoginPage> {
                       decoration: InputDecoration(
                         labelText: 'Password',
                         labelStyle: TextStyle(color: MainLayout.labelColor),
-                        prefixIcon: const Icon(Icons.lock_outline, 
-                        color: MainLayout.primaryColor),
+                        prefixIcon: const Icon(Icons.lock_outline,
+                            color: MainLayout.primaryColor),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide(color: MainLayout.borderColor),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
-                          borderSide: BorderSide(color: 
-                          MainLayout.primaryColor, width: 2),
-                      ),
-                      filled: true,
-                      fillColor: MainLayout.inputFillColor,
+                          borderSide: const BorderSide(
+                            color: MainLayout.primaryColor,
+                            width: 2,
+                          ),
+                        ),
+                        filled: true,
+                        fillColor: MainLayout.inputFillColor,
                       ),
                       validator: (value){
                         if (value == null || value.isEmpty) {
@@ -149,9 +155,10 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                       ),
                     ),
-                  ),
+
 
                   const SizedBox(height: 24),
+
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
@@ -161,12 +168,57 @@ class _LoginPageState extends State<LoginPage> {
                         );
                       }
                     },
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 18),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      backgroundColor: MainLayout.primaryColor,
+                      foregroundColor: Colors.white,
+                      elevation: 0,
+                    ),
+                    child: const Text(
+                      'Login',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.0,
+                        ),
+                    ),
+                  ),
+                  const SizedBox(height: 24),
 
-                  ],
-
-                ),,
-              ),
-              ),,
-      )
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Don\'t have an account? ',
+                        style: TextStyle(
+                          color: MainLayout.textSubTitleColor,
+                          fontSize: 15),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const RegisterPage()),
+                            );
+                          },
+                          child: const Text(
+                            'Sign Up',
+                            style: TextStyle(
+                              color: MainLayout.accentOrange,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                      ),
+                    ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+ }
 }
-
