@@ -47,10 +47,17 @@ class _LoginPageState extends State<LoginPage> {
                             color: Main.Layout.primaryColor.withOpacity(0.1),
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          
-                        )
+                          child: const Center(
+                            child: Icon(
+                              Icons.image_not_supported_outlined,
+                              size: 80,
+                              color: MainLayout.primaryColor,
+                            ),
+                          ),
+                        );
                       },
                     ),
+                    const SizedBox(height: 40),
                     ).
                   ],
 
