@@ -70,7 +70,72 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     const SizedBox(height: 8),
-                    ).
+                    Text('Sign in to your account',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: MainLayout.textSubTitleColor,
+                      ),
+                    ),
+
+                    const SizedBox(height: 48),
+                    TextFormField(
+                      controller: _emailController,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        labelText: 'Email Address',
+                        labelStyle: TextStyle(color: MainLayout.labelColor),
+                        prefixIcon: const Icon(Icons.email_outlined, 
+                        color: MainLayout.primaryColor),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(color: MainLayout.borderColor),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                          borderSide: BorderSide(color: 
+                          MainLayout.primaryColor, width: 2),
+                      ),
+                      filled: true,
+                      fillColor: MainLayout.inputFillColor,
+                      ),
+                      validator: (value){
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your email';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 20),
+
+                    TextFormField(
+                      controller: _passwordController,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                        labelStyle: TextStyle(color: MainLayout.labelColor),
+                        prefixIcon: const Icon(Icons.lock_outline, 
+                        color: MainLayout.primaryColor),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(color: MainLayout.borderColor),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                          borderSide: BorderSide(color: 
+                          MainLayout.primaryColor, width: 2),
+                      ),
+                      filled: true,
+                      fillColor: MainLayout.inputFillColor,
+                      ),
+                      validator: (value){
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your password';
+                        }
+                        return null;
+                      },
+                    ),
+                    
                   ],
 
                 ),,
